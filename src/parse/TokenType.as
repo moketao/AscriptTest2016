@@ -25,6 +25,8 @@ package parse
       
       public static var keyfunction:int = 12;
       
+	  public static var keystatic:int = 57;
+	  
       public static var keyif:int = 13;
       
       public static var keyelse:int = 14;
@@ -40,7 +42,7 @@ package parse
       public static var keynew:int = 19;
       
       public static var keyextends:int = 20;
-      
+	  
       public static var keypackage:int = 42;
       
       public static var keypublic:int = 44;

@@ -9,29 +9,28 @@ package
 	
 	public class ascriptTest extends Sprite
 	{
-
+		private static var n:String = "测试"; 
 		private var loader:BulkLoader;
 		public function ascriptTest()
 		{
+			var arr:Array = [CCC];
 			Script.init(this);
 			
 			loader = new BulkLoader("main");
-			loader.add("txt/A.js");
+			loader.add("txt/B.js");
 			loader.addEventListener(BulkProgressEvent.COMPLETE,onTxtReady);
 			loader.start();
 		}
 		
 		protected function onTxtReady(e:BulkProgressEvent):void
 		{
-			var js:String = loader.getText("txt/A.js");
-			Script.LoadFromString(js);
-			Script.execute("var a:A = new A();  trace(a.getB().f());");
+			//var jsA:String = loader.getText("txt/A.js");
+			//Script.LoadFromString(jsA);
 			
-			trace("\n");
-			trace("第二种调用方式(建议):");
-			var a:* = Script.New("A");
-			var b:* = a.getB();
-			trace(b.f());
+			var jsB:String = loader.getText("txt/B.js");
+			Script.LoadFromString(jsB);
+			Script.execute("var b = new B(); trace( b.getOB().k() );");
+			//var a:* = Script.New("A");
 		}
 
 	}
